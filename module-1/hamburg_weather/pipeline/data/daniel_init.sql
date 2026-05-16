@@ -63,5 +63,5 @@ FROM (
     FROM @{{env}}_demo.raw_data.s3load/raw_customers.csv
 );
 
-
+--删除临时warehouse
 drop warehouse demo_build_wh;
