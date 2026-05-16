@@ -1,0 +1,4 @@
+warehouse_id,warehouse_name,city,state,region
+WH_SEA,Seattle Fulfillment Center,Seattle,WA,West
+WH_TAC,Tacoma Fulfillment Center,Tacoma,WA,West
+WH_PDX,Portland Fulfillment Center,Portland,OR,West

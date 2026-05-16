@@ -1,0 +1,73 @@
+file_name,column_name,data_type,description
+raw_customers.csv,customer_id,string,Business key for customer
+raw_customers.csv,customer_segment,string,Consumer / SMB / Wholesale
+raw_customers.csv,customer_city,string,Customer city
+raw_customers.csv,customer_state,string,Customer state
+raw_customers.csv,signup_date,date,Customer signup date
+raw_products.csv,sku,string,Product business key
+raw_products.csv,brand,string,Brand
+raw_products.csv,category,string,High-level category
+raw_products.csv,subcategory,string,Subcategory
+raw_products.csv,product_name,string,Display name
+raw_products.csv,standard_cost,decimal,Approximate unit cost
+raw_products.csv,list_price,decimal,List price
+raw_products.csv,weight_lb,decimal,Shipping weight in pounds
+raw_warehouses.csv,warehouse_id,string,Warehouse business key
+raw_warehouses.csv,warehouse_name,string,Warehouse name
+raw_warehouses.csv,city,string,Warehouse city
+raw_warehouses.csv,state,string,Warehouse state
+raw_warehouses.csv,region,string,Region label
+raw_orders.csv,order_id,string,Order business key; contains duplicate CDC-like rows for some orders
+raw_orders.csv,customer_id,string,Foreign key to customer
+raw_orders.csv,warehouse_id,string,Allocated warehouse
+raw_orders.csv,order_ts,timestamp,Order create timestamp
+raw_orders.csv,promised_ship_ts,timestamp,Promised ship timestamp
+raw_orders.csv,promised_delivery_ts,timestamp,Promised delivery timestamp; null in a few rows intentionally
+raw_orders.csv,order_status,string,processing / in_transit / delivered / cancelled / returned
+raw_orders.csv,payment_method,string,Payment method
+raw_orders.csv,sales_channel,string,Website / Amazon Marketplace / Wholesale Portal
+raw_orders.csv,shipping_service_level,string,Standard / Expedited / Two-Day
+raw_orders.csv,order_total_amount,decimal,Order total at order row level
+raw_orders.csv,record_updated_ts,timestamp,"Last update timestamp, useful for dedup"
+raw_orders.csv,source_file_date,date,Mock landing date
+raw_order_items.csv,order_item_id,string,Order line business key
+raw_order_items.csv,order_id,string,Parent order id
+raw_order_items.csv,line_number,integer,Line number within order
+raw_order_items.csv,sku,string,Product key
+raw_order_items.csv,quantity,integer,Ordered quantity
+raw_order_items.csv,unit_price,decimal,Unit selling price
+raw_order_items.csv,discount_amount,decimal,Discount amount for line
+raw_order_items.csv,tax_amount,decimal,Tax amount for line
+raw_order_items.csv,extended_amount,decimal,Extended line amount after discount plus tax
+raw_order_items.csv,item_status,string,fulfilled / backordered
+raw_inventory_movements.csv,movement_id,string,Inventory movement key
+raw_inventory_movements.csv,warehouse_id,string,Warehouse business key
+raw_inventory_movements.csv,sku,string,Product key
+raw_inventory_movements.csv,movement_ts,timestamp,Movement timestamp
+raw_inventory_movements.csv,movement_type,string,receipt / reserve / ship / return / cycle_count_adjustment / damage_writeoff
+raw_inventory_movements.csv,quantity_change,integer,Positive or negative quantity delta
+raw_inventory_movements.csv,reference_type,string,Source type of movement
+raw_inventory_movements.csv,reference_id,string,Source id of movement
+raw_inventory_movements.csv,ingestion_ts,timestamp,Landing timestamp
+raw_shipment_events.csv,event_id,string,Shipment event key
+raw_shipment_events.csv,order_id,string,Parent order
+raw_shipment_events.csv,package_id,string,Package key
+raw_shipment_events.csv,carrier,string,Carrier name
+raw_shipment_events.csv,service_level,string,Service level
+raw_shipment_events.csv,tracking_number,string,Tracking number; a few nulls intentionally
+raw_shipment_events.csv,event_ts,timestamp,Shipment event timestamp
+raw_shipment_events.csv,event_type,string,label_created / picked_up / in_transit / out_for_delivery / delivered / delivery_exception
+raw_shipment_events.csv,estimated_delivery_ts,timestamp,Expected delivery timestamp from order promise
+raw_shipment_events.csv,ingestion_ts,timestamp,Landing timestamp; late arrivals included
+raw_shipment_events.csv,event_source,string,carrier_api / 3pl_feed / ops_manual_fix
+raw_returns.csv,return_id,string,Return key
+raw_returns.csv,order_id,string,Parent order
+raw_returns.csv,order_item_id,string,Returned line item
+raw_returns.csv,request_ts,timestamp,Return requested timestamp
+raw_returns.csv,approved_ts,timestamp,Approved timestamp
+raw_returns.csv,received_ts,timestamp,Warehouse received timestamp
+raw_returns.csv,refund_ts,timestamp,Refund timestamp
+raw_returns.csv,return_reason,string,Reason code
+raw_returns.csv,return_status,string,requested / approved / received / refunded
+raw_returns.csv,refund_amount,decimal,Refund amount; a few intentionally exceed line amount
+raw_returns.csv,disposition,string,restock / refurbish / scrap
